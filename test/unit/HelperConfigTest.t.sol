@@ -11,6 +11,7 @@ contract HelperConfigTest is Test {
     address public expectedWethUsdPriceFeed;
 
     function testSepoliaConfigIsUsedOnSepoliaChain() public {
+        vm.setEnv("PRIVATE_KEY", "1");
         vm.chainId(11155111);
         config = new HelperConfig();
         (expectedWethUsdPriceFeed,,,,) = config.activeNetworkConfig();
